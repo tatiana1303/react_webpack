@@ -13,8 +13,7 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
-  
-    },
+      },
     ],
   },
   resolve: {
@@ -29,8 +28,8 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
-      new HtmlWebpackPlugin({
-          template: './public/index.html',
-      }),
-  ], 
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    }),
+  ],
 };
