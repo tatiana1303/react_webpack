@@ -1,58 +1,70 @@
 /* eslint-disable linebreak-style */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Bot } from './components/Bot';
+import { Form } from './components/Form/Form';
+import { MessageList } from './components/MessageList/MessageList';
+import { nanoid } from 'nanoid';
+import { ChatList } from './components/ChatList/ChatList';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
-export class App extends React.Component {
-  state = {
-    messageList: [],
+export const App = () => {
+  const [messages, setMessages] = useState([]);
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+  }));
+
+  useEffect(() => {
+    if (messages.length && messages[messages.length - 1].author === 'User') {
+      const timer = setTimeout(
+        () =>
+          addMessage({
+            author: 'BOT',
+            text: 'Hello, I am Bot',
+          }),
+        1500
+      );
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [messages]);
+
+  const addMessage = ({ text, author }) => {
+    setMessages([
+      ...messages,
+      {
+        id: nanoid(),
+        author,
+        text,
+      },
+    ]);
   };
 
-  handleSubmit = (ev) => {
-    ev.preventDefault();
-    this.setState({
-      messageList: [
-        ...this.state.messageList,
-        {
-          ...this.state.message,
-          autor: this.state.autor,
-          text: this.state.text,
-        },
-      ],
-    });
-  };
-
-  handleInputChangeAutor = (ev) => {
-    this.setState({ autor: ev.target.value });
-  };
-  handleInputChangeText = (ev) => {
-    this.setState({ text: ev.target.value });
-  };
-
-  render() {
-    return (
-      <form onSubmit={(ev) => this.handleSubmit(ev)}>
-        <p className="Input-title">Введите имя</p>
-        <input type="text" onChange={(ev) => this.handleInputChangeAutor(ev)} />
-        <p className="Input-title">Введите сообщение</p>
-        <input type="text" onChange={(ev) => this.handleInputChangeText(ev)} />
-        <button className="Input-btn" type="submit">
-          click
-        </button>
-        <ul>
-          {this.state.messageList.map((item, idx) => {
-            return (
-              <li className="Message-autor" key={idx}>
-                {item.autor}
-                <li className="Message-text">{item.text}</li>
-                <li>
-                  <Bot />
-                </li>
-              </li>
-            );
-          })}
-        </ul>
-      </form>
-    );
-  }
-}
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={4}>
+          <Item>
+            <MessageList messages={messages} />
+          </Item>
+          <Item>
+            {' '}
+            <Form addMessage={addMessage} />
+          </Item>
+        </Grid>
+        <Grid item xs={4}>
+          <Item>
+            <ChatList />
+          </Item>
+        </Grid>
+      </Grid>
+    </Box>
+  );
+};
