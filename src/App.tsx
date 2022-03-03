@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-import React, { useState, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import './App.css';
 import { Form } from './components/Form/Form';
 import { MessageList } from './components/MessageList/MessageList';
@@ -10,8 +10,19 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
-export const App = () => {
-  const [messages, setMessages] = useState([]);
+export interface Message {
+  id: string;
+  text: string;
+  author: string;
+}
+
+interface AppState {
+  messages: Message[];
+}
+
+export const App: FC = () => {
+  const [messages, setMessages] = useState<Message[]>([]);
+
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -36,7 +47,7 @@ export const App = () => {
     }
   }, [messages]);
 
-  const addMessage = ({ text, author }) => {
+  const addMessage = ({ text, author }: { text: string; author: string }) => {
     setMessages([
       ...messages,
       {
@@ -55,7 +66,6 @@ export const App = () => {
             <MessageList messages={messages} />
           </Item>
           <Item>
-            {' '}
             <Form addMessage={addMessage} />
           </Item>
         </Grid>

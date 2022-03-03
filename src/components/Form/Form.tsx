@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { Input, Button } from '@mui/material';
 
-export const Form = ({ addMessage }) => {
-  const [text, setText] = useState('');
-  let textInput = React.createRef();
+interface Message {
+  text: string;
+  author: string;
+}
 
-  const handleText = (ev) => {
+interface FormProps {
+  addMessage: (message: Message) => void;
+}
+
+export const Form: FC<FormProps> = ({ addMessage }) => {
+  const [text, setText] = useState('');
+  const textInput = React.useRef<HTMLInputElement | null>();
+
+  const handleText = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    textInput.current.focus(
-      addMessage({
-        text,
-        author: 'User',
-      })
-    );
+    addMessage({
+      text,
+      author: 'User',
+    });
     setText('');
   };
 

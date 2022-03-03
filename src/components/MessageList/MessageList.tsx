@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import { Message } from '../../App';
 
-export const MessageList = ({ messages }) => {
+interface MessageListProp {
+  messages: Message[];
+}
+
+export const MessageList: FC<MessageListProp> = ({ messages }) => {
   return (
     <Box
       sx={{

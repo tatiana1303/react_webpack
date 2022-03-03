@@ -5,11 +5,14 @@ module.exports = {
     es6: true,
   },
   extends: [
+    'prettier',
     'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    //'plugin:storybook/recommended',
+    'plugin:storybook/recommended',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -18,17 +21,29 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['react', 'react-hooks', 'prettier'],
   rules: {
+    'react-hooks/rules-of-hooks': ['error'],
+    'react-hooks/exhaustive-deps': ['warn'],
+    'react/no-unescaped-entities': ['error', { forbid: ['>', '}'] }],
     'prettier/prettier': [
       'error',
       {
         singleQuote: true,
+        endOfLine: 'auto',
       },
     ],
     'react/prop-types': 0,
     'linebreak-style': [0, 'error', 'unix'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
+    quotes: ['warn', 'single'],
+    semi: ['warn', 'always'],
   },
+  overrides: [
+    {
+      files: ['webpack.config.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': ['off'],
+      },
+    },
+  ],
 };
