@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-var-requires: "off" */
 import React, { useState, FC } from 'react';
 import { Input, Button } from '@mui/material';
 

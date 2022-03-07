@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-var-requires: "off" */
 import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
@@ -6,14 +7,13 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
+import { Link } from 'react-router-dom';
 
-const chats = [
-  { autor: 'User 1', id: 1 },
-  { autor: 'User 2', id: 2 },
-  { autor: 'User 3', id: 3 },
-];
+interface ChatListProp {
+  chats: Chat[];
+}
 
-export const ChatList: FC = () => {
+export const ChatList: FC<ChatListProp> = ({ chats }) => {
   return (
     <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       <nav aria-label="main mailbox folders">
@@ -24,7 +24,9 @@ export const ChatList: FC = () => {
                 <ListItemIcon>
                   <Avatar></Avatar>
                 </ListItemIcon>
-                <ListItemText primary={chat.autor} />
+                <ListItemText>
+                  <Link to={`/chats/${chat.id}`}>{chat.autor}</Link>
+                </ListItemText>
               </ListItemButton>
             </ListItem>
           ))}
