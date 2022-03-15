@@ -1,4 +1,3 @@
-/* eslint @typescript-eslint/no-var-requires: "off" */
 import React, { FC, useState, useEffect, useCallback } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import { Form } from '../components/Form/Form';

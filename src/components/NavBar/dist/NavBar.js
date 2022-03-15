@@ -1,7 +1,6 @@
 'use strict';
 exports.__esModule = true;
 exports.NavBar = void 0;
-/* eslint @typescript-eslint/no-var-requires: "off" */
 var react_1 = require('react');
 var react_router_dom_1 = require('react-router-dom');
 var react_router_1 = require('react-router');

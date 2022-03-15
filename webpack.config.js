@@ -17,9 +17,10 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
-      // { //   test: /\.(ts|tsx)$/,
-      //   exclude: /node_modules/, //   use: ["ts-loader"],
-      // },
+      //{ test: /\.(ts|tsx)$/,
+      //  exclude: /node_modules/,
+      //  use: ["ts-loader"],
+      //},
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
@@ -31,7 +32,6 @@ module.exports = {
     chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, './build'),
     publicPath: '/',
-    //filename: 'bundle.js',
   },
   devtool: 'eval-source-map',
   devServer: {

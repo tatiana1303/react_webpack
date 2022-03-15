@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-/* eslint @typescript-eslint/no-var-requires: "off" */
+
 import React, { FC } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';

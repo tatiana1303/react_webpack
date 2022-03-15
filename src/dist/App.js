@@ -1,8 +1,7 @@
 'use strict';
+/* eslint-disable linebreak-style */
 exports.__esModule = true;
 exports.App = void 0;
-/* eslint-disable linebreak-style */
-/* eslint @typescript-eslint/no-var-requires: "off" */
 var react_1 = require('react');
 var react_router_dom_1 = require('react-router-dom');
 require('./App.css');

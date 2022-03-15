@@ -1,4 +1,3 @@
-/* eslint @typescript-eslint/no-var-requires: "off" */
 import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';

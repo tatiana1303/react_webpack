@@ -1,4 +1,3 @@
-/* eslint-disable no-redeclare */
 'use strict';
 var __assign =
   (this && this.__assign) ||
@@ -27,7 +26,6 @@ var __spreadArrays =
   };
 exports.__esModule = true;
 exports.Chats = void 0;
-/* eslint @typescript-eslint/no-var-requires: "off" */
 var react_1 = require('react');
 var react_router_dom_1 = require('react-router-dom');
 var Form_1 = require('../components/Form/Form');

@@ -21,10 +21,10 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', 'prettier'],
+  plugins: ['react', 'react-hooks', 'prettier', 'jest'],
   rules: {
-    'react-hooks/rules-of-hooks': ['error'],
-    'react-hooks/exhaustive-deps': ['warn'],
+    //'react-hooks/rules-of-hooks': ['error'],
+    //'react-hooks/exhaustive-deps': ['warn'],
     'react/no-unescaped-entities': ['error', { forbid: ['>', '}'] }],
     'prettier/prettier': [
       'error',
@@ -42,7 +42,7 @@ module.exports = {
     {
       files: ['webpack.config.js'],
       rules: {
-        '@typescript-eslint/no-var-requires': ['off'],
+        '@typescript-eslint/no-var-requires': 0,
       },
     },
   ],

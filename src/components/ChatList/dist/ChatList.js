@@ -1,7 +1,6 @@
 'use strict';
 exports.__esModule = true;
 exports.ChatList = void 0;
-/* eslint @typescript-eslint/no-var-requires: "off" */
 var react_1 = require('react');
 var Box_1 = require('@mui/material/Box');
 var List_1 = require('@mui/material/List');

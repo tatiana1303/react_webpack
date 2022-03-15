@@ -1,7 +1,6 @@
 'use strict';
 exports.__esModule = true;
 exports.Form = void 0;
-/* eslint @typescript-eslint/no-var-requires: "off" */
 var react_1 = require('react');
 var material_1 = require('@mui/material');
 exports.Form = function (_a) {
