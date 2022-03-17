@@ -25,9 +25,9 @@ export interface Messages {
 }
 
 const defaultMessages: Messages = {
-  chat1: [{ author: 'User1', text: ' ', id: '1' }],
-  chat2: [{ author: 'User2', text: ' ', id: '1' }],
-  chat3: [{ author: 'User3', text: ' ', id: '1' }],
+  chat1: [{ author: 'I am User1', text: ' ', id: '1' }],
+  chat2: [{ author: 'I am User2', text: ' ', id: '1' }],
+  chat3: [{ author: 'I am User3', text: ' ', id: '1' }],
 };
 
 const chats = [

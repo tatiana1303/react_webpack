@@ -1,8 +1,7 @@
-/* eslint @typescript-eslint/no-var-requires: "off" */
-'use strict';
+"use strict";
 exports.__esModule = true;
 exports.Main = void 0;
-var react_1 = require('react');
+var react_1 = require("react");
 exports.Main = function () {
-  return react_1['default'].createElement('h2', null, 'Main page');
+    return react_1["default"].createElement("h2", null, "Main page");
 };
