@@ -38,4 +38,3 @@ export const Form: FC<FormProps> = ({ addMessage }) => {
     </form>
   );
 };
-
